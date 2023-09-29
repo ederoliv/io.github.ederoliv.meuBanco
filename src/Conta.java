@@ -1,14 +1,35 @@
+import java.util.Objects;
+
 public class Conta {
     Pessoa titular;
-    int numero, agencia;
-    double saldo;
+    private int numero, agencia;
+    private double saldo;
 
-    /*Abaixo o método construtor, ele eh um metodo com o nome exatamente igual da classe e ele eh executado na
-    instanncia do objeto*/
-    Conta() {
+    Conta () {}
 
         //...
 
+    public Pessoa getTitular() {
+        return titular;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    Conta (Pessoa titular, int numeroConta, int agencia) {
+        Objects.requireNonNull(titular);
+        this.titular = titular;
+        this.numero = numeroConta;
+        this.agencia = agencia;
     }
     public void sacar(double valor){
 
@@ -22,14 +43,8 @@ public class Conta {
 
     }
 
-    /*SOBRECARGA DE METODO EH A TECNICA DE ESCREVER DOIS METODOS COM O MESMO NOME MAS COM A
-    * ASSINATURA DIFERENTE
-    * EX: TENHO O METODO SAQUE, MAS HA TIPOS DIFERENTES DE SAQUE:
-    *  SAQUE
-    *  SAQUE + TAXA,
-    *  SAQUE MAIS + MULTA,
-    *  ETC*/
-        public void sacar(double valor, double taxaSaque){
+
+    public void sacar(double valor, double taxaSaque){
         sacar(valor + taxaSaque);
     }
 

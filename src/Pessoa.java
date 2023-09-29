@@ -1,5 +1,5 @@
 public class Pessoa {
 
-    String nome, documento;
+    private String nome, documento;
 
 }

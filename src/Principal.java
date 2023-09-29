@@ -2,23 +2,18 @@ public class Principal {
 
     public static void main(String[] args){
 
+
         Pessoa eu =  new Pessoa();
         Pessoa voce = new Pessoa();
 
-        Conta minhaConta = new Conta();
+        Conta minhaConta = new Conta(eu, 1234, 111);
         Conta suaConta = new Conta();
 
-        minhaConta.titular = eu;
 
-        minhaConta.saldo = 1_000;
-        minhaConta.titular.nome = "Eder";
+        minhaConta.depositar(1);
 
-        suaConta.titular = voce;
-        suaConta.titular.nome = "Davi";
+        System.out.println("Saldo: " + minhaConta.getSaldo());
 
-        minhaConta.depositar(-2);
-
-        System.out.println("Saldo: " + minhaConta.saldo);
 
     }
 }
