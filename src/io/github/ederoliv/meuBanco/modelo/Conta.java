@@ -1,15 +1,17 @@
+package io.github.ederoliv.meuBanco.modelo;
+
 import java.util.Objects;
 
 public class Conta {
 
-    Pessoa titular;
-    int agencia;
-    int numero;
-    double saldo;
+    private Pessoa titular;
+    private int agencia;
+    private int numero;
+    private double saldo;
 
     Conta() {
     }
-    Conta(Pessoa titular,int agencia ,int numero) {
+    public Conta(Pessoa titular,int agencia ,int numero) {
 
         Objects.requireNonNull(titular);
 
@@ -18,14 +20,14 @@ public class Conta {
         this.numero = numero;
 
     }
-    void depositar(double valor) {
+    public void depositar(double valor) {
         if(valor <= 0) {
             throw new IllegalArgumentException("Valor deve ser maior que 0");
         }
         this.saldo = valor;
     }
 
-    void sacar(double valor) {
+    public void sacar(double valor) {
         if(valor <= 0) {
             throw new IllegalArgumentException("Valor deve ser maior que 0");
         }
@@ -35,8 +37,24 @@ public class Conta {
             saldo = saldo - valor;
     }
 
-    void sacar(double valor, double taxaSaque) {
+    public void sacar(double valor, double taxaSaque) {
         sacar(valor + taxaSaque);
+    }
+
+    public Pessoa getTitular() {
+        return titular;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
     }
 
 }
